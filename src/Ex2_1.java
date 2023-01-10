@@ -6,7 +6,6 @@ import java.util.Random;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
 public class Ex2_1 {
     /**
      * the function makes n text files, every row contains at least 10 characters.
