@@ -46,12 +46,15 @@ The Thread Pool pattern helps to save resources in a multithreaded application a
 When we use a thread pool, we write our concurrent code in the form of parallel tasks and submit them for execution to an instance of a thread pool. This instance controls several re-used threads for executing these tasks.
 
 ### runnable and callable
+Runnable or Callable interfaces Interfaces are used by Thread, Mythread and ThreadPool (ExecutorService) to read the files and count the number of lines.
 
-In this assignment, for the function getNumOfLinesThreads() we built a MyThread class which extends from Thread, where Thread implements the Runnable interface. For the getNumOfLinesThreadpool() function we built a Task class that implements the Callable interface
+Runnable is an interface in Java that defines a single method, run(), which contains the code that will be executed by a thread. In order to run code in a separate thread, you need to create a class that implements Runnable and overrides the run() method with the code you want to run in the separate thread.
 
-Both runnable and callable interfaces are designed for classes. Their instances are supposed to be executed by another thread.
+Callable is similar to Runnable, but it allows the thread to return a result when it completes its execution. Callable is a functional interface, it defines a single method, call(), that contains the code that will be executed by a thread and returns a value.
 
-However, there are also some differences between these interfaces. Let’s discuss the differences between them by explaining them separately.
+Thread class is a predefined class in Java that allows creating and controlling a thread of execution, it can be used by extending the class or providing a Runnable object or using the Thread constructor. Mythread is an example of extending the Thread class.
+
+ExecutorService is an interface that provides methods for executing tasks using a pool of threads, the tasks are either Runnable or Callable, ExecutorService provides more functionality than thread creation and management, it also provides ways of managing the thread pool and handling the thread exceptions.
 
 ### Uml
 ![image](https://user-images.githubusercontent.com/95377680/211935055-5037b316-bfe1-4195-bb7a-8d8fc44c1847.png)
