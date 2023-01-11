@@ -9,6 +9,7 @@ The assignment had two parts:
 
 ### Part one
 
+### *Metods
 In the first part we had to build 4 methods:
 
 #### createTextFiles(int n, int seed, int bound):
