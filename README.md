@@ -7,9 +7,9 @@ The assignment had two parts:
 1. Part A- Use of threads, thread pool: Examining the running time of a simple function in relation to threads and thread pool
 2. Part B- 
 
-### Part one
+## Part one
 
-### *Metods
+### Metods
 In the first part we had to build 4 methods:
 
 #### createTextFiles(int n, int seed, int bound):
@@ -36,7 +36,7 @@ It creates an executor service thread pool with the number of threads equals to 
 Then it submits a Callable task for each file, and collects the returned value of each task, which is the number of lines in the corresponding file.
 Finally, it shutdowns the thread pool and returns the sum of all the returned values as the total number of lines in all the files.
 
-#### Threads and Thread pool
+### Threads and Thread pool
 In Java, threads are mapped to system-level threads, which are the operating system's resources. If we create threads uncontrollably, we may run out of these resources quickly.
 
 The operating system does the context switching between threads as well — in order to emulate parallelism. A simplistic view is that the more threads we spawn, the less time each thread spends doing actual work.
@@ -45,7 +45,7 @@ The Thread Pool pattern helps to save resources in a multithreaded application a
 
 When we use a thread pool, we write our concurrent code in the form of parallel tasks and submit them for execution to an instance of a thread pool. This instance controls several re-used threads for executing these tasks.
 
-#### runnable and callable
+### runnable and callable
 
 In this assignment, for the function getNumOfLinesThreads() we built a MyThread class which extends from Thread, where Thread implements the Runnable interface. For the getNumOfLinesThreadpool() function we built a Task class that implements the Callable interface
 
@@ -53,6 +53,6 @@ Both runnable and callable interfaces are designed for classes. Their instances 
 
 However, there are also some differences between these interfaces. Let’s discuss the differences between them by explaining them separately.
 
-#### Uml
+### Uml
 ![image](https://user-images.githubusercontent.com/95377680/211935055-5037b316-bfe1-4195-bb7a-8d8fc44c1847.png)
 
