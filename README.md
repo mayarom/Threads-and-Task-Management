@@ -25,6 +25,14 @@ The Thread Pool pattern helps to save resources in a multithreaded application a
 
 When we use a thread pool, we write our concurrent code in the form of parallel tasks and submit them for execution to an instance of a thread pool. This instance controls several re-used threads for executing these tasks.
 
+### runnable and callable
+
+In this assignment, for the function getNumOfLinesThreads() we built a MyThread class which extends from Thread, where Thread implements the Runnable interface. For the getNumOfLinesThreadpool() function we built a Task class that implements the Callable interface
+
+Both runnable and callable interfaces are designed for classes. Their instances are supposed to be executed by another thread.
+
+However, there are also some differences between these interfaces. Let’s discuss the differences between them by explaining them separately.
+
 ### Uml
 ![image](https://user-images.githubusercontent.com/95377680/211935055-5037b316-bfe1-4195-bb7a-8d8fc44c1847.png)
 
