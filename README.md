@@ -9,6 +9,9 @@ The assignment had two parts:
 
 ### Part one
 
+In the first part we had to build 4 actions:
+1. Creates 10 text files (with a random number of lines) and an array of size 10 with the names of the files (txt.serial number).
+
 
 #### Threads and Thread pool
 In Java, threads are mapped to system-level threads, which are the operating system's resources. If we create threads uncontrollably, we may run out of these resources quickly.
