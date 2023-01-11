@@ -1,6 +1,6 @@
-import java.util.Random;
+package Ex2_1;
+
 import java.util.concurrent.ExecutionException;
-import java.util.random.RandomGenerator;
 
 public class Main {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
