@@ -3,6 +3,10 @@
 # Assignment number 2 - Threads
 ## Object Oriented Programming Ariel University
 
+The assignment had two parts:
+1. Part A- Use of threads, thread pool: Examining the running time of a simple function in relation to threads and thread pool
+2. Part B- 
+
 ### Part one
 
 
