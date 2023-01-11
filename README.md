@@ -10,7 +10,10 @@ The assignment had two parts:
 ### Part one
 
 In the first part we had to build 4 actions:
-1. Creates 10 text files (with a random number of lines) and an array of size 10 with the names of the files (txt.serial number).
+1. createTextFiles()- Creates 10 text files (with a random number of lines) and an array of size 10 with the names of the files (txt.serial number).
+2. getNumOfLines ()- gets a string array with the files names and return the sum of the file's rows
+3. getNumOfLinesThreads()- gets a string array with the files names and return the sum of the file's rows using threads
+4. getNumOfLinesThreadPool ()-gets a string array with the files names and return the sum of the file's rows using threadpool
 
 
 #### Threads and Thread pool
@@ -21,3 +24,7 @@ The operating system does the context switching between threads as well — in o
 The Thread Pool pattern helps to save resources in a multithreaded application and to contain the parallelism in certain predefined limits.
 
 When we use a thread pool, we write our concurrent code in the form of parallel tasks and submit them for execution to an instance of a thread pool. This instance controls several re-used threads for executing these tasks.
+
+### Uml
+![image](https://user-images.githubusercontent.com/95377680/211935055-5037b316-bfe1-4195-bb7a-8d8fc44c1847.png)
+
