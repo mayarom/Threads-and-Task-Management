@@ -11,7 +11,7 @@ The assignment had two parts:
 
 In the first part we had to build 4 methods:
 
-####   createTextFiles(int n, int seed, int bound):
+#### createTextFiles(int n, int seed, int bound):
 This method creates n text files and returns an array of the file names. The parameter n controls the number of files created. The parameter seed is used as a seed for the random number generator, and bound is used as the upper bound for the random number of rows in each file. Each file is named "file_i.txt", where i is the index of the file in the array.
 The method first checks that the input parameters are valid (n > 0 and bound > 0), if not it throws an IllegalArgumentException.
 It then creates an array of file names and a buffered writer for each file, with the file name "file_i.txt".
@@ -29,7 +29,7 @@ It creates an array of threads, with one thread for each file in the fileNames a
 Each thread is created with the Mythread class, which reads the corresponding file and increments a shared AtomicInteger variable that stores the total number of lines read.
 Finally it starts all the threads, waits for them to finish, and then it returns the total number of lines.
 
-**** getNumOfLinesThreadPool(String[] fileNames):***
+#### getNumOfLinesThreadPool(String[] fileNames):
 This method does the same as the previous two methods, but uses a thread pool to read the files.
 It creates an executor service thread pool with the number of threads equals to the number of files, using the Executors.newFixedThreadPool() method.
 Then it submits a Callable task for each file, and collects the returned value of each task, which is the number of lines in the corresponding file.
