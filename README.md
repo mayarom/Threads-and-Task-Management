@@ -11,7 +11,7 @@ The assignment had two parts:
 
 In the first part we had to build 4 methods:
 
-* createTextFiles(int n, int seed, int bound):
+#####  * createTextFiles(int n, int seed, int bound):
 This method creates n text files and returns an array of the file names. The parameter n controls the number of files created. The parameter seed is used as a seed for the random number generator, and bound is used as the upper bound for the random number of rows in each file. Each file is named "file_i.txt", where i is the index of the file in the array.
 The method first checks that the input parameters are valid (n > 0 and bound > 0), if not it throws an IllegalArgumentException.
 It then creates an array of file names and a buffered writer for each file, with the file name "file_i.txt".
