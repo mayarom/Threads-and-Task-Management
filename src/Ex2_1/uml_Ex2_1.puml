@@ -1,0 +1,45 @@
+@startuml
+!theme cloudscape-design
+!function bold($text)
+!$result = "<b>"+ $text +"</b>"
+!log Calling bold function with $text. The result is $result
+!return $result
+!endfunction
+ class Mythread
+
+ class Ex2_1{
+ createTextFiles()
+ getNumOfLines()
+ getNumOfLinesThreads()
+ getNumOfLinesThreadPool ()
+
+ }
+
+interface Runnable{
+    run() : void
+}
+interface Callable{
+call() : Object
+}
+"Callable" <|-- Task : This is bold("implements Callable")
+"Runnable" <|-- Mythread : This is bold("extends Thread") implements Runnable
+
+"Mythread"<|--"Ex2_1"
+"Task"<|--"Ex2_1"
+
+class Mythread {
++String name()
++total_lines ()
++int sum_lines()
+run () : void
+}
+class Task {
++String name()
++total_lines ()
++int sum_lines()
+call () : Object
+}
+
+
+
+@enduml
