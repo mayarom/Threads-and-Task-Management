@@ -63,7 +63,7 @@ ExecutorService is an interface that provides methods for executing tasks using 
 
 It appears that the test cases are checking the performance of the program using three different methods of executing the tasks (normal, using threads, and using thread pool) and comparing their average execution times. The test is creating text files, and it is calling three different methods to count the number of lines in these text files and comparing the time it takes for each method. There is also test cases for creating text files and validating if the files are created successfully, and a test case for checking if the total number of lines returned is correct.
 
-#### Timing results
+#### Time measurement results and conclusions
 
 In the test results, it was shown that the function implemented with threads had the best performance among the three methods, followed by the function implemented with threadpool and lastly, the function implemented in a traditional, single-threaded way.
 
