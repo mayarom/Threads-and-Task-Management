@@ -85,6 +85,20 @@ in part two, we provided four classes and an enumeration that work together to m
 #### Description of each Class:
 The "Task" class is used to create and manage tasks with priorities. It is implemented with the Callable and Comparable interfaces, has a priority field that represents the priority of the task, a Callable variable that holds the task that needs to be executed, and two static methods for creating tasks with or without a task type.
 
+
+
+
+
+
+
+
+
+The class also has two static methods:
+
+createTask(Callable my_task, TaskType task_type): This method creates a task with a task_type.
+createTask(Callable my_task): This method creates a task without a task_type.
+It also has getter methods to access the priority and the task.
+
 The "TaskConverter" class is used to convert a Task<T> object to a FutureTask<T> object. It extends the FutureTask class and implements the Comparable interface. It has a task field of type Task<T> which holds the task that needs to be executed. The class overrides the compareTo method from the Comparable interface, and it also has getter and setter methods for the task field.
 
 The "CustomExecuter" class is used to create a thread pool and submit tasks to it. It extends the ThreadPoolExecutor class and keeps track of the priority of the submitted tasks, It allows for the graceful termination of the thread pool, and it also has methods for submitting tasks and getting the current max priority of the submitted tasks.
