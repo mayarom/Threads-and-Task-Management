@@ -1,0 +1,140 @@
+import org.junit.Test;
+
+import java.util.concurrent.ExecutionException;
+
+import static org.junit.Assert.assertTrue;
+
+import static org.junit.Assert.assertEquals;
+
+import java.io.File;
+
+public class Ex2_1Test {
+    @Test
+    public void testTiming() throws ExecutionException, InterruptedException {
+
+        long total_time_1 = 0;
+        long total_time_2 = 0;
+        long total_time_3 = 0;
+        double avg_time_1, avg_time_2, avg_time_3;
+
+        for (int i = 0; i < 1000; i++) { // run 100 times
+            String[] arr = Ex2_1.createTextFiles(10, i, 100);
+            //print the arr
+
+            total_time_1 += play_normal(arr);
+            total_time_2 += play_threads(arr);
+            total_time_3 += play_threadpool(arr);
+        }
+
+        avg_time_1 = (double) total_time_1 / 1000;
+        avg_time_2 = (double) total_time_2 / 1000;
+        avg_time_3 = (double) total_time_3 / 1000;
+        System.out.println("Normal Avg: " + avg_time_1);
+        System.out.println("Threads Avg: " + avg_time_2);
+        System.out.println("Threadpool Avg: " + avg_time_3);
+
+        if (avg_time_1 < avg_time_2 && avg_time_1 < avg_time_3) {
+            assertTrue(avg_time_1 < avg_time_2 && avg_time_1 < avg_time_3);
+            if (avg_time_2 < avg_time_3) {
+                assertTrue(avg_time_2 < avg_time_3);
+            } else {
+                assertTrue(avg_time_3 < avg_time_2);
+            }
+        } else if (avg_time_2 < avg_time_1 && avg_time_2 < avg_time_3) {
+            assertTrue(avg_time_2 < avg_time_1 && avg_time_2 < avg_time_3);
+            if (avg_time_1 < avg_time_3) {
+                assertTrue(avg_time_1 < avg_time_3);
+            } else {
+                assertTrue(avg_time_3 < avg_time_1);
+            }
+        } else if (avg_time_3 < avg_time_1 && avg_time_3 < avg_time_2) {
+            assertTrue(avg_time_3 < avg_time_1 && avg_time_3 < avg_time_2);
+            if (avg_time_1 < avg_time_2) {
+                assertTrue(avg_time_1 < avg_time_2);
+            } else {
+                assertTrue(avg_time_2 < avg_time_1);
+            }
+        } else if (avg_time_1 == avg_time_2 && avg_time_1 == avg_time_3) {
+            assertTrue(avg_time_1 == avg_time_2 && avg_time_1 == avg_time_3);
+        }
+    }
+
+
+    @Test
+    public void createTextFiles_validInput_createsFiles() {
+        String[] files = Ex2_1.createTextFiles(3, 0, 10);
+
+        for (String file : files) {
+            File f = new File(file);
+            assertEquals(true, f.exists());
+        }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void createTextFiles_nIsZero_throwsException() {
+        Ex2_1.createTextFiles(0, 0, 10);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void createTextFiles_boundIsZero_throwsException() {
+        Ex2_1.createTextFiles(3, 0, 0);
+    }
+
+    @Test
+    public void getNumOfLines_validFiles_returnsCorrectSum() {
+        String[] files = Ex2_1.createTextFiles(3, 0, 10);
+        int sum = Ex2_1.getNumOfLines(files);
+
+        assertTrue(sum >= 3 && sum <= 30);
+    }
+
+    @Test
+    public void getNumOfLinesThreads_validFiles_returnsCorrectSum() {
+        String[] files = Ex2_1.createTextFiles(3, 0, 10);
+        Ex2_1 ex2_1 = new Ex2_1();
+        int sum = ex2_1.getNumOfLinesThreads(files);
+// asert true if sum is between 3 t0 30
+        assertTrue(sum >= 3 && sum <= 30);
+
+    }
+
+    @Test
+    public void getNumOfLinesThreadPool_validFiles_returnsCorrectSum() throws ExecutionException, InterruptedException {
+        String[] files = Ex2_1.createTextFiles(3, 0, 10);
+        Ex2_1 ex2_1 = new Ex2_1();
+        int sum = ex2_1.getNumOfLinesThreadPool(files);
+
+        assertTrue(sum >= 3 && sum <= 30);
+
+    }
+
+
+    private static long play_threadpool(String[] arr) throws ExecutionException, InterruptedException {
+        long start = System.currentTimeMillis();
+        Ex2_1 o = new Ex2_1();
+        o.getNumOfLinesThreadPool(arr);
+        long end = System.currentTimeMillis();
+        System.out.println("play_normal time: " + (end - start));
+
+        return end - start;
+    }
+
+    private static long play_threads(String[] arr) {
+        long start = System.currentTimeMillis();
+        Ex2_1 o = new Ex2_1();
+        o.getNumOfLinesThreads(arr);
+        long end = System.currentTimeMillis();
+        System.out.println("play_threads time: " + (end - start));
+        return end - start;
+    }
+
+
+    public static long play_normal(String[] way1) {
+        long start = System.currentTimeMillis();
+        Ex2_1.getNumOfLines(way1);
+        long end = System.currentTimeMillis();
+        System.out.println("play_threadpool time: " + (end - start));
+
+        return end - start;
+    }
+}
