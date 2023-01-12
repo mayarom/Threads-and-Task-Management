@@ -160,7 +160,7 @@ The CustomExecuter class is used to create a thread pool and submit tasks to it.
 
 ### Uml
 
-![img_1.png](img_1.png)
+![image](https://user-images.githubusercontent.com/95377680/212156753-e6271e2c-be44-4c0d-bd59-d31293177662.png)
 
 
 ### In conclusion
