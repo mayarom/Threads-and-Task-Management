@@ -1,3 +1,5 @@
+package Ex2_1;
+
 import java.io.*;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -67,7 +69,6 @@ public class Ex2_1 {
 
     /**
      * this function gets a string array with the files names and return the sum of the file's rows using threads
-     *
      * @param fileNames string array with the files names
      * @return sum of the rows of the files
      */
@@ -92,12 +93,12 @@ public class Ex2_1 {
 
     /**
      * this function gets a string array with the files names and return the sum of the file's rows using threadpool
-     *
      * @return sum of the rows of the files
      */
     public int getNumOfLinesThreadPool(String[] fileNames) throws ExecutionException, InterruptedException {
         int sum_lines=0;
-        ExecutorService MyThreadPool = Executors.newFixedThreadPool(fileNames.length); // create thread pool
+        int available_cores = Runtime.getRuntime().availableProcessors() - 1;
+        ExecutorService MyThreadPool = Executors.newFixedThreadPool(available_cores); // create thread pool
         for (int i=0; i<fileNames.length; i++) {
             Callable<Integer> callable = new Task(fileNames[i]); // create callable object
             Future<Integer> future = MyThreadPool.submit(callable); // submit the task to the thread pool
@@ -107,8 +108,6 @@ public class Ex2_1 {
         return sum_lines;
     }
 
-// interface callable - with return (implements)
-// interface runable - withoout return  (class thread implements runable)
 
     public class Mythread extends Thread {
         public String fileName; // file name
@@ -135,17 +134,21 @@ public class Ex2_1 {
         }
     }
 
-    // threadpool- treadcollection in order to run few threads in the same time
-    class Task implements Callable {
+  
+    class Task implements Callable { 
         String fileThread;
         public Task(String fileName) {
             this.fileThread = fileName;
         }
 
+        /**
+         * @return the number of lines in the file
+         * @throws Exception
+         */
         @Override
-        public Object call() throws Exception {
+        public Object call() throws Exception { 
             int sum_lines = 0;
-            try {
+            try { 
                 BufferedReader reader = new BufferedReader(new FileReader(fileThread));
                 while (reader.readLine() != null) {
                     sum_lines++;
