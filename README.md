@@ -1,13 +1,48 @@
 
 
-# Assignment number 2 - Threads
+# Assignment number 2 - Threads and Task Management
+
 ## Object Oriented Programming Ariel University
 
-The assignment had two parts:
-1. Part A- Use of threads, thread pool: Examining the running time of a simple function in relation to threads and thread pool
-2. Part B- 
+### Overview
+This program demonstrates the use of threads and thread pools to improve the performance and efficiency of a program by allowing for concurrent execution of tasks. It also demonstrates how to manage and execute tasks with different priorities in a concurrent manner.
 
-## Part one
+### Running the program
+This program requires Java 8 or later to be installed.
+
+* Option 1: Running from the terminal.
+
+To run the program from the terminal, navigate to the root directory of the project and use the following command:
+
+    Javac Main.java
+    java Main
+
+You will be prompted to enter the number of files, seed and bound, which are used to create the text files. Once you have entered the values, the program will execute the methods of counting the number of lines in the files and display the results.
+
+* Option 2: Running from an IDE.
+  To run the program from an IDE (such as Eclipse or IntelliJ IDEA), you will need to import the project into the IDE.
+
+1. Here are the general steps to do so:
+2. Open the IDE and go to the File menu. Select "Import" or "Open Project," depending on the IDE.
+3. In the import wizard, select "Existing Projects into Workspace" and click Next.
+4. Browse to the root directory of the project and select the project's main folder. Click Finish.
+5. Once the project is imported, you should see the project files and directories in the IDE's Project Explorer or Package Explorer.
+5. To run the program, you will need to find the Main class. It should be located in the "src" folder and contain the main method.
+6. Right-click on the Main class and select "Run As" or "Debug As" and then "Java Application."
+
+You will be prompted to enter the number of files, seed and bound, which are used to create the text files. Once you have entered the values, the program will execute the 3 methods of counting the number of lines in the files and display the results.
+It's important to note that if the input parameters are not valid (n > 0 and bound > 0) the program will throw an IllegalArgumentException.
+
+
+
+### Approach
+The  is divided into 2 main parts :
+
+1. Part A - Use of threads, thread pool: Examining the running time of a simple function in relation to threads and thread pool.
+2. Part B - Managing and executing tasks with different priorities in a concurrent manner.
+
+
+## Part A
 
 ### Metods
 In the first part we had to build 4 methods:
@@ -78,7 +113,7 @@ Additionally, thread-based method can have a lower overhead because it doesn’t
 In conclusion, using threads and threadpools can greatly improve the performance of your program, especially when dealing with concurrent tasks. However, the best method to use depends on the specific requirements and nature of the task at hand.
 
 
-## Part two
+## Part B
 
 In part two, we provided four classes and an enumeration that work together to manage and execute tasks with different priorities in a concurrent manner.
 
@@ -123,9 +158,34 @@ The CustomExecuter class is used to create a thread pool and submit tasks to it.
 * beforeExecute(Thread t, Runnable r): overridden method, decrements the counter of the priority array after the execution of the task.
 * toString(): overridden method, prints the current state of the thread pool.
 
+### Uml
+
+![img_1.png](img_1.png)
 
 
+### In conclusion
+In conclusion, the first part of the assignment demonstrated how to use threads and thread pools to improve the performance and efficiency of a program by allowing for concurrent execution of tasks, and highlighted the importance of properly managing these resources to avoid issues such as resource depletion and decreased performance. The second part of the assignment showed how to manage and execute tasks with different priorities in a concurrent manner using the TaskType enumeration, Task, TaskConverter, and CustomExecuter classes. Overall, the assignment taught how to use threads and thread pools in a Java program to improve performance and manage concurrent tasks with different priorities. It also emphasized the importance of properly managing resources when using threads and thread pools and the use of interfaces such as Runnable, Callable and the Comparable interface.
 
+### Contact
 
+If you have any questions or feedback about this program, please don't hesitate to reach out. 
+You can contact us at:
 
-This classes provide a way to set priority for different types of task and also validate the priority value passed to the task, also it allows the submission of tasks with different priorities to the thread pool and also allows the graceful termination of the thread pool.
+* Maya Rom
+- Email:maya5660@gmail.com
+- phone number: 0547655170
+
+* Avichai Mizrachi
+* Email: Avichai_miz@gmail.com
+* phone number: 054-775-7734
+
+we will be happy to help and we will try to get back to you as soon as possible.
+
+### References
+
+* https://learn.microsoft.com/en-us/dotnet/api/system.threading.threadpool.setminthreads?view=net-7.0
+* https://www.geeksforgeeks.org/thread-pools-java/
+* https://www.digitalocean.com/community/tutorials/threadpoolexecutor-java-thread-pool-example-executorservice
+* https://www.educative.io/courses/java-multithreading-for-senior-engineering-interviews/RLg4O1VYJ3w
+* friends 
+* moodle 
