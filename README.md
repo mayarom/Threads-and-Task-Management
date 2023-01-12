@@ -80,18 +80,12 @@ In conclusion, using threads and threadpools can greatly improve the performance
 
 ## Part two
 
-in part two, we provided four classes and an enumeration that work together to manage and execute tasks with different priorities in a concurrent manner.
+In part two, we provided four classes and an enumeration that work together to manage and execute tasks with different priorities in a concurrent manner.
 
 #### Description of each Class:
-The "Task" class is used to create and manage tasks with priorities. It is implemented with the Callable and Comparable interfaces, has a priority field that represents the priority of the task, a Callable variable that holds the task that needs to be executed, and two static methods for creating tasks with or without a task type.
+The "Task" class is used to create and manage tasks with priorities. It is implemented with the Callable and Comparable interfaces..
 
-
-
-
-
-
-
-
+--------------------continue here--------------------------------
 
 The class also has two static methods:
 
