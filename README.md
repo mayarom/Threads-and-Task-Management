@@ -83,20 +83,21 @@ In conclusion, using threads and threadpools can greatly improve the performance
 In part two, we provided four classes and an enumeration that work together to manage and execute tasks with different priorities in a concurrent manner.
 
 #### Description of each Class:
-The "Task" class is used to create and manage tasks with priorities. It is implemented with the Callable and Comparable interfaces..
+
+1. "Task" class - used to create and manage tasks with priorities. It is implemented with the Callable and Comparable interfaces..
 
 --------------------continue here--------------------------------
 
 The class also has two static methods:
 
-createTask(Callable my_task, TaskType task_type): This method creates a task with a task_type.
-createTask(Callable my_task): This method creates a task without a task_type.
+* createTask(Callable my_task, TaskType task_type): This method creates a task with a task_type.
+* createTask(Callable my_task): This method creates a task without a task_type.
 It also has getter methods to access the priority and the task.
 
-The "TaskConverter" class is used to convert a Task<T> object to a FutureTask<T> object. It extends the FutureTask class and implements the Comparable interface. It has a task field of type Task<T> which holds the task that needs to be executed. The class overrides the compareTo method from the Comparable interface, and it also has getter and setter methods for the task field.
+2. "TaskConverter" class- used to convert a Task<T> object to a FutureTask<T> object. It extends the FutureTask class and implements the Comparable interface. It has a task field of type Task<T> which holds the task that needs to be executed. The class overrides the compareTo method from the Comparable interface, and it also has getter and setter methods for the task field.
 
-The "CustomExecuter" class is used to create a thread pool and submit tasks to it. It extends the ThreadPoolExecutor class and keeps track of the priority of the submitted tasks, It allows for the graceful termination of the thread pool, and it also has methods for submitting tasks and getting the current max priority of the submitted tasks.
+3. "CustomExecuter" class - used to create a thread pool and submit tasks to it. It extends the ThreadPoolExecutor class and keeps track of the priority of the submitted tasks, It allows for the graceful termination of the thread pool, and it also has methods for submitting tasks and getting the current max priority of the submitted tasks.
 
-The "TaskType" enumeration is used to define the type of a task with its priority value. It defines three enumeration constants: COMPUTATIONAL, IO, and OTHER, each constant has an associated priority value that is passed to the constructor of the enum. The enum also has methods for getting and setting the priority value of the task type.
+4. "TaskType" class - used to define the type of a task with its priority value. It defines three enumeration constants: COMPUTATIONAL, IO, and OTHER, each constant has an associated priority value that is passed to the constructor of the enum. The enum also has methods for getting and setting the priority value of the task type.
 
 Together, these classes provide a framework for managing and executing tasks with different priorities in a concurrent manner, they can be used to create a task scheduler or a task manager.
