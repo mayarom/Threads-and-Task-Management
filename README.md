@@ -36,11 +36,10 @@ It's important to note that if the input parameters are not valid (n > 0 and bou
 
 
 ### Approach
-The  is divided into 2 main parts :
+The assigment is divided into 2 main parts :
 
 1. Part A - Use of threads, thread pool: Examining the running time of a simple function in relation to threads and thread pool.
 2. Part B - Managing and executing tasks with different priorities in a concurrent manner.
-
 
 ## Part A
 
