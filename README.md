@@ -119,18 +119,18 @@ In part two, we provided four classes and an enumeration that work together to m
 
 ### Description of each Class
 
-#### 1. TaskType (enum class):
+####  TaskType (enum class):
 Defines the type of a task with its priority value and has three enumeration constants: COMPUTATIONAL, IO, and OTHER, each with an associated priority value passed to the constructor.
 
-#### Methods:
+##### Methods:
 * setPriority(int priority) : sets the priority value of the task type
 * getPriorityValue() : returns the priority value of the task type
 * getType() : returns the task type
 
-#### 2. Task (class):
+####  Task 
 Used to create and manage tasks with priorities, it implements the Callable and Comparable interfaces.
 
-#### Methods:
+##### Methods:
 * createTask(Callable my_task, TaskType task_type) : creates a task with a task_type
 * createTask(Callable my_task) : creates a task without a task_type
 * call() : executes the task
@@ -138,18 +138,18 @@ Used to create and manage tasks with priorities, it implements the Callable and 
 * getPriority() : returns the priority of the task
 * getMyTask() : returns the task
 
-#### 3. TaskConverter (class):
+#### TaskConverter :
 Used to convert a Task object to a FutureTask object, it extends the FutureTask class and implements the Comparable interface.
 
-#### Methods:
+##### Methods:
 * compareTo(Task<T> task) : compares the tasks based on their priority
 * getTask() : returns the task
 * setTask(Task<T> task) : sets the task
 
-#### 4. CustomExecuter (class):
+##### CustomExecuter :
 The CustomExecuter class is used to create a thread pool and submit tasks to it. It extends the ThreadPoolExecutor class and keeps track of the priority of the submitted tasks, allowing for the graceful termination of the thread pool. The class has an array "priority" to keep track of the number of tasks submitted with a certain priority.
 
-#### Methods:
+##### Methods:
 * submit(Task<T> task) : submits the task to the thread pool
 * submit(Callable<T> my_task) : submits the task to the thread pool
 * submit(Callable<T> my_task, TaskType task_type) : submits the task to the thread pool with a task type
