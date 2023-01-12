@@ -61,6 +61,22 @@ ExecutorService is an interface that provides methods for executing tasks using 
 
 ### Tests
 
+It appears that the test cases are checking the performance of the program using three different methods of executing the tasks (normal, using threads, and using thread pool) and comparing their average execution times. The test is creating text files, and it is calling three different methods to count the number of lines in these text files and comparing the time it takes for each method. There is also test cases for creating text files and validating if the files are created successfully, and a test case for checking if the total number of lines returned is correct.
+
+#### Timing results
+
+In the test results, it was shown that the function implemented with threads had the best performance among the three methods, followed by the function implemented with threadpool and lastly, the function implemented in a traditional, single-threaded way.
+
+There are several reasons why this might be the case:
+First, in the traditional, single-threaded method, the program only uses one core of the CPU, which can cause a bottleneck in performance as the program's operations can only be processed one at a time.
+On the other hand, the thread-based method and threadpool-based method utilizes multiple threads, which can run concurrently and can therefore perform multiple operations at the same time, resulting in better performance.
+
+Threadpool-based method has a limitation that it can only queue a certain number of thread, and each thread has a cost of instantiation, the thread-based method is more effective if the number of requests is not constant.
+
+Additionally, thread-based method can have a lower overhead because it doesn’t require the threadpool manager to add and remove threads, this means that it can create and destroy threads on the fly as needed, which can lead to better performance.
+
+In conclusion, using threads and threadpools can greatly improve the performance of your program, especially when dealing with concurrent tasks. However, the best method to use depends on the specific requirements and nature of the task at hand.
+
 
 
 
