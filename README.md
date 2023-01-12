@@ -67,7 +67,7 @@ Finally it starts all the threads, waits for them to finish, and then it returns
 
 #### getNumOfLinesThreadPool(String[] fileNames):
 This method does the same as the previous two methods, but uses a thread pool to read the files.
-It creates an executor service thread pool with the number of threads equals to the number of files, using the Executors.newFixedThreadPool() method.
+The function then creates a fixed thread pool using the "Executors.newFixedThreadPool(available_cores)" method, which creates a thread pool with a fixed number of threads equal to the number of available cores.
 Then it submits a Callable task for each file, and collects the returned value of each task, which is the number of lines in the corresponding file.
 Finally, it shutdowns the thread pool and returns the sum of all the returned values as the total number of lines in all the files.
 
