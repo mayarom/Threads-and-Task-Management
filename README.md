@@ -57,7 +57,7 @@ Thread class is a predefined class in Java that allows creating and controlling 
 ExecutorService is an interface that provides methods for executing tasks using a pool of threads, the tasks are either Runnable or Callable, ExecutorService provides more functionality than thread creation and management, it also provides ways of managing the thread pool and handling the thread exceptions.
 
 ### Uml
-![image](https://user-images.githubusercontent.com/95377680/211935055-5037b316-bfe1-4195-bb7a-8d8fc44c1847.png)
+![image](https://user-images.githubusercontent.com/95377680/211951214-e24f3412-486d-4d68-887e-606a9037038a.png)
 
 ### Tests
 
