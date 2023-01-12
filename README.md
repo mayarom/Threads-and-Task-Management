@@ -172,8 +172,8 @@ If you have any questions or feedback about this program, please don't hesitate 
 You can contact us at:
 
 * Maya Rom
-- Email:maya5660@gmail.com
-- phone number: 0547655170
+* Email:maya5660@gmail.com
+* phone number: 0547655170
 
 * Avichai Mizrachi
 * Email: Avichai_miz@gmail.com
