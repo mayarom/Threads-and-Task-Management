@@ -1,5 +1,3 @@
-package Ex2_1;
-
 import java.io.*;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -10,12 +8,19 @@ public class Ex2_1 {
      * the function makes n text files, every row contains at least 10 characters.
      * it's return a string array with the n files names.
      *
-     * @param n     number of text files
+     * @param n  number of text files
      * @param seed  seed for the random number generator
      * @param bound bound for the random number generator
      * @return files name array ,
      */
     public static String[] createTextFiles(int n, int seed, int bound) {
+        if (n <=0) {
+            throw new IllegalArgumentException("n must be positive");
+        }
+        if (bound <= 0) {
+            throw new IllegalArgumentException("bound must be positive");
+        }
+
         String[] files_name = new String[n];
         for (int i = 0; i < n; i++) {
             int files_id = i + 1;
@@ -82,7 +87,7 @@ public class Ex2_1 {
 
             }
         }
-        return Mythread.fun3sum.get();
+        return Mythread.total_lines.get();
     }
 
     /**
@@ -106,20 +111,22 @@ public class Ex2_1 {
 // interface runable - withoout return  (class thread implements runable)
 
     public class Mythread extends Thread {
-        public String fileName;
-        static AtomicInteger fun3sum = new AtomicInteger(0);
+        public String fileName; // file name
+        static AtomicInteger total_lines = new AtomicInteger(0); // static variable for the sum of the rows of the total files
+        public int sum_lines ; // sum of the rows of the file
 
         public Mythread(String fileName) {
             super(); // call to Thread constructor
-            this.fileName = fileName;
+            this.fileName = fileName; // set the file name
+            sum_lines = 0; // initialize the sum of the rows of the file
         }
-
         @Override
         public void run() { // override run method and count the num of the file's lines.
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(fileName));
                 while (reader.readLine() != null) {
-                    fun3sum.incrementAndGet();
+                    total_lines.incrementAndGet();
+                    sum_lines++;
                 }
                 reader.close();
             } catch (IOException e) {
