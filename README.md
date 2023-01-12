@@ -82,20 +82,50 @@ In conclusion, using threads and threadpools can greatly improve the performance
 
 In part two, we provided four classes and an enumeration that work together to manage and execute tasks with different priorities in a concurrent manner.
 
-#### Description of each Class:
+### Description of each Class
 
-1. "Task" class - used to create and manage tasks with priorities. It is implemented with the Callable and Comparable interfaces.
+#### 1. TaskType (enum class):
+Defines the type of a task with its priority value and has three enumeration constants: COMPUTATIONAL, IO, and OTHER, each with an associated priority value passed to the constructor.
 
- The class also has two static methods:
+#### Methods:
+* setPriority(int priority) : sets the priority value of the task type
+* getPriorityValue() : returns the priority value of the task type
+* getType() : returns the task type
 
-* createTask(Callable my_task, TaskType task_type): This method creates a task with a task_type.
-* createTask(Callable my_task): This method creates a task without a task_type.
-* In addition to the static methods, the class has getter methods to access the priority and the task.
+#### 2. Task (class):
+Used to create and manage tasks with priorities, it implements the Callable and Comparable interfaces.
 
-2. "TaskConverter" class- used to convert a Task<T> object to a FutureTask<T> object. It extends the FutureTask class and implements the Comparable interface. It has a task field of type Task<T> which holds the task that needs to be executed. The class overrides the compareTo method from the Comparable interface, and it also has getter and setter methods for the task field.
+#### Methods:
+* createTask(Callable my_task, TaskType task_type) : creates a task with a task_type
+* createTask(Callable my_task) : creates a task without a task_type
+* call() : executes the task
+* compareTo(Task<T> task) : compares the tasks based on their priority
+* getPriority() : returns the priority of the task
+* getMyTask() : returns the task
 
-3. "CustomExecuter" class - used to create a thread pool and submit tasks to it. It extends the ThreadPoolExecutor class and keeps track of the priority of the submitted tasks, It allows for the graceful termination of the thread pool, and it also has methods for submitting tasks and getting the current max priority of the submitted tasks.
+#### 3. TaskConverter (class):
+Used to convert a Task object to a FutureTask object, it extends the FutureTask class and implements the Comparable interface.
 
-4. "TaskType" class - used to define the type of a task with its priority value. It defines three enumeration constants: COMPUTATIONAL, IO, and OTHER, each constant has an associated priority value that is passed to the constructor of the enum. The enum also has methods for getting and setting the priority value of the task type.
+#### Methods:
+* compareTo(Task<T> task) : compares the tasks based on their priority
+* getTask() : returns the task
+* setTask(Task<T> task) : sets the task
 
-Together, these classes provide a framework for managing and executing tasks with different priorities in a concurrent manner, they can be used to create a task scheduler or a task manager.
+#### 4. CustomExecuter (class):
+The CustomExecuter class is used to create a thread pool and submit tasks to it. It extends the ThreadPoolExecutor class and keeps track of the priority of the submitted tasks, allowing for the graceful termination of the thread pool. The class has an array "priority" to keep track of the number of tasks submitted with a certain priority.
+
+#### Methods:
+* submit(Task<T> task) : submits the task to the thread pool
+* submit(Callable<T> my_task) : submits the task to the thread pool
+* submit(Callable<T> my_task, TaskType task_type) : submits the task to the thread pool with a task type
+* gracefullyTerminate() : initiates the shutdown process of the thread pool
+* getCurrentMax() : returns the current maximum number of tasks submitted with a certain priority
+* beforeExecute(Thread t, Runnable r): overridden method, decrements the counter of the priority array after the execution of the task.
+* toString(): overridden method, prints the current state of the thread pool.
+
+
+
+
+
+
+This classes provide a way to set priority for different types of task and also validate the priority value passed to the task, also it allows the submission of tasks with different priorities to the thread pool and also allows the graceful termination of the thread pool.
