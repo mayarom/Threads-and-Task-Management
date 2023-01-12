@@ -97,8 +97,8 @@ public class Ex2_1 {
      */
     public int getNumOfLinesThreadPool(String[] fileNames) throws ExecutionException, InterruptedException {
         int sum_lines=0;
-        int available_cores = Runtime.getRuntime().availableProcessors() - 1;
-        ExecutorService MyThreadPool = Executors.newFixedThreadPool(available_cores); // create thread pool
+        int available_cores = Runtime.getRuntime().availableProcessors() - 1;// get the number of available cores
+        ExecutorService MyThreadPool = Executors.newFixedThreadPool(available_cores);// create thread pool with the number of available cores 
         for (int i=0; i<fileNames.length; i++) {
             Callable<Integer> callable = new Task(fileNames[i]); // create callable object
             Future<Integer> future = MyThreadPool.submit(callable); // submit the task to the thread pool
